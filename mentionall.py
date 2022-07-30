@@ -44,9 +44,9 @@ async def start(event):
                     buttons=(
                    
 		      [Button.url('Beni Gruba Ekle ➕', f"https://t.me/{bot_username}?startgroup=a")],
-                      [Button.url('Support🛠', f"https://t.me/{support}")],
-                      [Button.url('Sahibim', f"https://t.me/{owner}")],
-		      [Button.url('Developer👨🏻‍💻', 'https://t.me/SakirBey1')],
+                      [Button.url('Support🛠', f"https://t.me/{KadimmTayfaa}")],
+                      [Button.url('Sahibim', f"https://t.me/{beylerbeyiniz}")],
+		      [Button.url('Developer👨🏻‍💻', 'https://t.me/beylerbeyiniz')],
 		      [Button.url('Github Code', 'https://nolur.com')],
                     ),
                     link_preview=False
@@ -58,9 +58,9 @@ async def help(event):
   await event.reply(helptext,
                     buttons=(
                       [Button.url('Beni Gruba Ekle➕', f"https://t.me/{bot_username}?startgroup=a")],
-                      [Button.url('Support🛠', f"https://t.me/{support}")],
-                      [Button.url('Sahibim🔖', f"https://t.me/{owner}")],
-		      [Button.url('Developer🧑‍🔧', 'https://t.me/SakirBey1')],
+                      [Button.url('Support🛠', f"https://t.me/{KadimmTayfaa}")],
+                      [Button.url('Sahibim🔖', f"https://t.me/{beylerbeyiniz}")],
+		      [Button.url('Developer🧑‍🔧', 'https://t.me/beylerbeyiniz')],
 		      [Button.url('Github Code', 'https://nolur.com')],
                     ),
                     link_preview=False
@@ -180,7 +180,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{random.choice(emoji)}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @SakirBey2**❌")
+        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @beylerbeyiniz**❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
@@ -193,13 +193,13 @@ async def mentionall(event):
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗️** \n @SakirBey2 ☄️")
+    return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗️** \n @beylerbeyiniz ☄️")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Bu komutu sadace yoneticiler kullana bilir〽️** \n @SakirBey2 ☄️")
+    return await event.respond("**Bu komutu sadace yoneticiler kullana bilir〽️** \n @beylerbeyiniz ☄️")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -222,7 +222,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👥 - [{usr.first_name}](tg://user?id={usr.id}) \n"
       if event.chat_id not in anlik_calisan:
-        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @SakirBey2**❌")
+        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @beylerbeyiniz**❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
@@ -258,7 +258,7 @@ async def cancel(event):
 async def mentionall(event):
   global tekli_calisan
   if event.is_private:
-    return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗️** \n @SakirBey2 ☄️")
+    return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗️** \n @beylerbeyiniz ☄️")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -287,7 +287,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"**👤 - [{usr.first_name}](tg://user?id={usr.id}) \n**"
       if event.chat_id not in tekli_calisan:
-        await event.respond("**Işlem Başarıyla Durduruldu**\n\n**Buda sizin reklamınız ola bilir @SakirBey2**❌")
+        await event.respond("**Işlem Başarıyla Durduruldu**\n\n**Buda sizin reklamınız ola bilir @beylerbeyiniz**❌")
         return
       if usrnum == 1:
         await client.send_message(event.chat_id, f"{usrtxt} {msg}")
@@ -305,7 +305,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👤 - [{usr.first_name}](tg://user?id={usr.id}) \n"
       if event.chat_id not in tekli_calisan:
-        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @SakirBey2**❌")
+        await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @beylerbeyiniz**❌")
         return
       if usrnum == 1:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
@@ -371,7 +371,7 @@ async def handler(event):
 @sakir.on(events.NewMessage(pattern='/reklam'))
 async def handler(event):
 	
-    await event.reply('__Botun Reklam Menüsü__\n**Reklam Veya İş Birliğimi Yapmak İstiyorsunuz Botun** [Sahibi](https://t.me/SakirBey1) **İle İletişime Geçiniz**')
+    await event.reply('__Botun Reklam Menüsü__\n**Reklam Veya İş Birliğimi Yapmak İstiyorsunuz Botun** [Sahibi](https://t.me/beylerbeyiniz) **İle İletişime Geçiniz**')
 
 @sakir.on(events.NewMessage(pattern="^/commands$"))
 async def start(event):
@@ -379,13 +379,13 @@ async def start(event):
                     buttons=(
                    
 		      [Button.url('Beni Gruba Ekle ➕', f"https://t.me/{bot_username}?startgroup=a")],
-                      [Button.url('Support🛠', f"https://t.me/{support}")],
-                      [Button.url('Sahibim', f"https://t.me/{owner}")],
-		      [Button.url('Developer👨🏻‍💻', 'https://t.me/SakirBey1')],
+                      [Button.url('Support🛠', f"https://t.me/{KadimmTayfaa}")],
+                      [Button.url('Sahibim', f"https://t.me/{beylerbeyiniz}")],
+		      [Button.url('Developer👨🏻‍💻', 'https://t.me/beylerbeyiniz')],
 		      [Button.url('Github Code', 'https://nolur.com')],
                     ),
                     link_preview=False
                    )
 
-print(">> Bot çalıyor merak etme 🚀 @SakirBey1 bilgi alabilirsin <<")
+print(">> Bot çalıyor merak etme 🚀 @beylerbeyiniz bilgi alabilirsin <<")
 client.run_until_disconnected()
