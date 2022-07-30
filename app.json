@@ -17,11 +17,11 @@
     },
     "BOT_NAME": {
       "description": "botun adını girin.",
-      "value": ""
+      "value": "theagencyTAGGER"
     },
     "BOT_USERNAME": {
       "description": "botun adresini girin.",
-      "value": ""
+      "value": "theagencyTAGGER_Bot"
     },
     "BOT_ID": {
       "description": "botun id'sini girin.",
@@ -29,7 +29,7 @@
     },
     "SUDO_USERS": {
       "description": "botun sahibini girin.",
-      "value": ""
+      "value": "862341989,1948748468"
     },
     "SUPPORT_CHAT": {
       "description": "botun destek grubunu girin.",
@@ -37,11 +37,11 @@
     },
     "OWNER_ID": {
       "description": "botun sahibinin id'sini girin.",
-      "value": ""
+      "value": "1948748468,862341989"
     },
     "OWNER_USERNAME": {
       "description": "botun sahibinin adresini girin.",
-      "value": ""
+      "value": "beylerbeyiniz"
     }
   },
   "buildpacks": [{
