@@ -38,7 +38,7 @@ rxyzdev_initT = {}
 
 
 
-@client.on(events.NewMessage(pattern="^/start$"))
+@sakir.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
   await event.reply("**🌀GrupTaggerBot**\n **İle Grubunuzdakı Nerdeyse Tüm Üyelere Etiket Ata bilirim \nKomutlar için =======> /help yazın**",
                     buttons=(
