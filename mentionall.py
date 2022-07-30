@@ -1,6 +1,6 @@
 import random, os, logging, asyncio
 from telethon import Button
-from telethon import TelegramClient, events
+from telethon import TelegramClient as sakir, events
 from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
 from asyncio import sleep
@@ -52,7 +52,7 @@ async def start(event):
                     link_preview=False
                    )
 
-@client.on(events.NewMessage(pattern="^/help$"))
+@sakir.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
   helptext = "**🌀 GrupTaggerBot Komutları**\n\n**/tag <sebeb> - 5-li Etiket Atar**\n\n**/etag <sebeb> - Emoji ile etiketler**\n\n**/tektag sebeb - Üyeleri Tek Tek Etiketler**\n\n**/admins sebeb - Yöneticileri Tek Tek Tag Eder**\n\n**/start - botu başlatır**\n \n /btag - __Bayrak Şeklinde Etiket Atar__ **Yeni** \n \n/durum - Botun Durumunu Gösterir \n\n/bagis : **Bağış Yapmak İstersen Basa Bilirsin.** \n \n /reklam - **Reklam Veya İş Birliği İçin Bu Komutu Kullanın.**"
   await event.reply(helptext,
@@ -66,7 +66,7 @@ async def help(event):
                     link_preview=False
                    )
 
-@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+@sakir.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
@@ -78,7 +78,7 @@ emoji = "🐵 🦁 🐯 🐱 🐶 🐺 🐻 🐨 🐼 🐹 🐭 🐰 🦊 🦝 �
 
 bayrak = "🏳️‍🌈 🏳️‍⚧️ 🇺🇳 🇦🇫 🇦🇽 🇦🇱 🇩🇿 🇦🇸 🇦🇩 🇦🇴 🇦🇮 🇦🇶 🇦🇬 🇦🇷 🇦🇲 🇦🇼 🇦🇺 🇦🇹 🇦🇿 🇧🇸 🇧🇭 🇧🇩  🇧🇧 🇧🇾 🇧🇪 🇧🇿 🇧🇯 🇧🇷 🇧🇼 🇧🇦 🇧🇴 🇧🇹 🇧🇲 🇻🇬 🇧🇳 🇧🇬 🇧🇫 🇧🇮 🇰🇭 🇰🇾 🇧🇶 🇨🇻 🇮🇨 🇨🇦 🇨🇲 🇨🇫 🇹🇩 🇮🇴 🇨🇳 🇨🇱 🇨🇽 🇨🇰 🇨🇩 🇨🇬 🇰🇲 🇨🇴 🇨🇨 🇨🇷 🇨🇿 🇪🇬 🇪🇹 🇪🇺 🇸🇻 🇩🇰 🇨🇮 🇭🇷 🇨🇺 🇨🇼 🇨🇾 🇪🇨 🇩🇴 🇩🇲 🇩🇯 🇬🇶 🇪🇷 🇫🇴 🇫🇰 🇫🇯 🇪🇪 🇸🇿 🇫🇮 🇬🇲 🇬🇦 🇹🇫 🇵🇫 🇬🇫 🇫🇷 🇬🇪 🇩🇪 🇬🇭 🇬🇮 🇬🇷 🇬🇱 🇬🇳 🇬🇬 🇬🇹 🇬🇺 🇬🇵 🇬🇩 🇬🇼 🇬🇾 🇭🇹 🇭🇳 🇭🇰 🇭🇺 🎌 🇮🇪 🇮🇶 🇯🇵 🇯🇲 🇮🇷 🇮🇩 🇮🇹 🇮🇱 🇮🇳 🇮🇸 🇮🇲 🇯🇪 🇯🇴 🇰🇬 🇰🇼 🇱🇷 🇱🇾 🇱🇮 🇱🇦 🇰🇿 🇰🇪 🇱🇻 🇱🇹 🇱🇺 🇱🇧 🇰🇮 🇽🇰 🇱🇸 🇲🇴 🇲🇹 🇲🇱 🇲🇻 🇲🇾 🇲🇼 🇲🇬 🇹🇷 🇹🇱 🇸🇪 🇸🇩 🇸🇧 🇸🇴 🇰🇷".split(" ")
 
-@client.on(events.NewMessage(pattern="^/btag ?(.*)"))
+@sakir.on(events.NewMessage(pattern="^/btag ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
@@ -124,12 +124,12 @@ async def mentionall(event):
     if event.chat_id in rxyzdev_tagTot:await event.respond(f"**✅ Etiket İşlemi Başarıyla Tamamlandı !.\n\nEtiketlerin Sayları: {rxyzdev_tagTot[event.chat_id]}\n\nEtiket İşlemini Başlatan: {rxyzdev_initT}**")
 
 	
-@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+@sakir.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)	
 
-@client.on(events.NewMessage(pattern="^/etag ?(.*)"))
+@sakir.on(events.NewMessage(pattern="^/etag ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
@@ -189,7 +189,7 @@ async def mentionall(event):
         usrtxt = ""
 
 
-@client.on(events.NewMessage(pattern="^/tag ?(.*)"))
+@sakir.on(events.NewMessage(pattern="^/tag ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
@@ -248,13 +248,13 @@ async def mentionall(event):
         usrnum = 0
         usrtxt = ""
 
-@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+@sakir.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
 	
 
-@client.on(events.NewMessage(pattern="^/tektag ?(.*)"))
+@sakir.on(events.NewMessage(pattern="^/tektag ?(.*)"))
 async def mentionall(event):
   global tekli_calisan
   if event.is_private:
@@ -313,14 +313,14 @@ async def mentionall(event):
         usrnum = 0
         usrtxt = ""
 
-@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+@sakir.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
   global tekli_calisan
   tekli_calisan.remove(event.chat_id)
 	
 
 
-@client.on(events.NewMessage(pattern="^/admins ?(.*)"))
+@sakir.on(events.NewMessage(pattern="^/admins ?(.*)"))
 async def mentionall(tagadmin):
 
 	if tagadmin.pattern_match.group(1):
@@ -339,14 +339,14 @@ async def mentionall(tagadmin):
 		sleep(0.5)
 	
 		
-@client.on(events.NewMessage(pattern='/alive'))
+@sakir.on(events.NewMessage(pattern='/alive'))
 async def handler(event):
     # Alive Bot Durumunu Kontrol Etme Yalnızca Adminler İçin !
     if str(event.sender_id) not in SUDO_USERS:
         return await event.reply("__Sen sahibim değilsin !__")
-    await event.reply('**Hey Bot Çalışıyor Merak Etme** \n Developer @SakirBey1')
+    await event.reply('**Hey Bot Çalışıyor Merak Etme** \n Developer @beylerbeyiniz')
 	
-@client.on(events.NewMessage(pattern='^/stats ?(.*)'))
+@sakir.on(events.NewMessage(pattern='^/stats ?(.*)'))
 async def son_durum(event):
     # Bot Stats 
     if str(event.sender_id) not in SUDO_USERS:
@@ -358,22 +358,22 @@ async def son_durum(event):
     await event.respond(f"**{bot_username} İstatistikleri 🤖**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
 
 
-@client.on(events.NewMessage(pattern='/durum'))
+@sakir.on(events.NewMessage(pattern='/durum'))
 async def handler(event):
 	
-    await event.reply('**Tagger Bot un Durum Menüsü** \n\n __Durum:__ `Çalışıyor✅` \n\n **Telethon Sürümü:** __v1.24.0__ \n\n**Python Sürümü:** __v3.10__ \n\n **Bot Sürümü:** __v1.2__ \n\n **Bu Botun Developeri** @SakirBey1 **dir**')
+    await event.reply('**Tagger Bot un Durum Menüsü** \n\n __Durum:__ `Çalışıyor✅` \n\n **Telethon Sürümü:** __v1.24.0__ \n\n**Python Sürümü:** __v3.10__ \n\n **Bot Sürümü:** __v1.2__ \n\n **Bu Botun Developeri** @beylerbeyiniz **dir**')
 
-@client.on(events.NewMessage(pattern='/bagis'))
+@sakir.on(events.NewMessage(pattern='/bagis'))
 async def handler(event):
 	
     await event.reply('**Tagger Botun Bağış Menüsü** \n\n__Papara No:__ `1744892543` \n\n  ✨')
 
-@client.on(events.NewMessage(pattern='/reklam'))
+@sakir.on(events.NewMessage(pattern='/reklam'))
 async def handler(event):
 	
     await event.reply('__Botun Reklam Menüsü__\n**Reklam Veya İş Birliğimi Yapmak İstiyorsunuz Botun** [Sahibi](https://t.me/SakirBey1) **İle İletişime Geçiniz**')
 
-@client.on(events.NewMessage(pattern="^/commands$"))
+@sakir.on(events.NewMessage(pattern="^/commands$"))
 async def start(event):
   await event.reply("**🌀GrupTaggerBot**\n **Boş Bi Menü Burası**",
                     buttons=(
